@@ -1,0 +1,502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --android-color: #3ddc84;
+    --android-hover: #2bc871;
+    --background: #0f0f1a;
+    --card-bg: #1a1a2e;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --border-color: #2a2a40;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    padding: 30px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+}
+
+.logo h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 0 40px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Problem & Solution Section */
+.problem-solution {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    padding: 20px 0 50px;
+}
+
+.problem,
+.solution {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 28px 32px;
+}
+
+.problem {
+    border-left: 4px solid #ef4444;
+}
+
+.solution {
+    border-left: 4px solid #22c55e;
+}
+
+.problem h3,
+.solution h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.problem ul,
+.solution ul {
+    list-style: none;
+    padding: 0;
+}
+
+.problem li,
+.solution li {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    padding-left: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.problem li strong,
+.solution li strong {
+    color: var(--text-primary);
+}
+
+.problem li:last-child,
+.solution li:last-child {
+    margin-bottom: 0;
+}
+
+/* Screenshots Section */
+.screenshots-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.screenshots-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.screenshots-section p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 32px;
+}
+
+/* Carousel */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.carousel-track-container {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 12px;
+    max-height: 400px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide img {
+    width: auto;
+    max-width: 100%;
+    max-height: 380px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
+}
+
+.carousel-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    z-index: 10;
+    position: relative;
+}
+
+.carousel-btn svg {
+    pointer-events: none;
+}
+
+.carousel-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.carousel-btn:disabled:hover {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-color);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.carousel-dot:hover {
+    background: var(--text-secondary);
+}
+
+.carousel-dot.active {
+    background: var(--primary-color);
+    width: 28px;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-container {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-btn {
+        display: none;
+    }
+
+    .carousel-track-container {
+        border-radius: 12px;
+    }
+}
+
+/* Downloads Header */
+.downloads-header {
+    text-align: center;
+    padding: 40px 0 10px;
+}
+
+.downloads-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.downloads-header p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Downloads Section */
+.downloads {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 40px 0;
+}
+
+.download-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.download-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+}
+
+.platform-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--primary-color), #a855f7);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.platform-icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.platform-icon.android {
+    background: linear-gradient(135deg, var(--android-color), #00c853);
+}
+
+.download-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.download-card p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 12px;
+}
+
+.coming-soon {
+    display: inline-block;
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--primary-color), #a855f7);
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.download-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+}
+
+.android-btn {
+    background: linear-gradient(135deg, var(--android-color), #00c853);
+}
+
+.android-btn:hover {
+    box-shadow: 0 8px 24px rgba(61, 220, 132, 0.4);
+}
+
+/* Instructions Section */
+.instructions {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 20px 0 60px;
+}
+
+.instructions h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.instruction-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.tab-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content ol {
+    padding-left: 24px;
+}
+
+.tab-content li {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    padding-left: 8px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .downloads {
+        grid-template-columns: 1fr;
+    }
+
+    .download-card {
+        padding: 24px;
+    }
+
+    .instructions {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 40px 0 20px;
+    }
+
+    .hero h2 {
+        font-size: 1.75rem;
+    }
+
+    .download-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tab-btn {
+        padding: 8px 16px;
+        font-size: 0.8125rem;
+    }
+}
